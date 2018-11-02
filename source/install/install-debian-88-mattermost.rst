@@ -55,7 +55,7 @@ Assume that the IP address of this server is 10.10.10.2.
     a. Change to the ``bin`` directory:
       ``cd /opt/mattermost``
     b. Start the Mattermost server as the user mattermost:
-      ``sudo -u mattermost ./bin/platform``
+      ``sudo -u mattermost ./bin/mattermost``
 
   When the server starts, it shows some log information and the text ``Server is listening on :8065``. You can stop the server by pressing CTRL+C in the terminal window.
 
@@ -74,8 +74,9 @@ Assume that the IP address of this server is 10.10.10.2.
     Requires=postgresql.service
 
     [Service]
-    Type=simple
-    ExecStart=/opt/mattermost/bin/platform
+    Type=notify
+    ExecStart=/opt/mattermost/bin/mattermost
+    TimeoutStartSec=3600
     Restart=always
     RestartSec=10
     WorkingDirectory=/opt/mattermost

@@ -125,9 +125,9 @@ This feature can be accessed through the `Mattermost Web App <https://docs.matte
 Supported Features
 ``````````````````
 
-The following key features are supported when importing from Slack:
+The following key features can be imported from Slack:
 
-* User accounts with an email address set
+* User accounts
 
 * Public channels and the text messages posted in them, with formatting
 
@@ -150,8 +150,6 @@ The following limitations are present when importing from Slack:
 
 * The import is not idempotent, which means that duplicate posts are created if you import the same data more than once.
 
-* The Markdown subset used by Slack's Posts 2.0 feature announced on September 28, 2015 is not yet supported.
-
 * Direct Messages and Private Channels cannot be imported. Slack does not include these messages when generating the export archive.
 
 * If the handle of an imported Slack channel is the same handle as a deleted Mattermost channel, then a random handle is generated for the imported Slack channel.
@@ -161,7 +159,7 @@ Migrating from Slack using the Mattermost Web App
 
 .. note:: For larger imports, particularly those where you have used the `slack-advanced-exporter tool` to add Slack post attachments to the archive, it is recommended to import the Slack data using the `CLI <https://docs.mattermost.com/administration/migrating.html#migrating-from-slack-using-the-mattermost-cli>`_.
 
-1. Generate a Slack "Export" file from **Slack > Team Settings > Import/Export Data > Export > Start Export**.
+1. Generate a Slack "Export" file from **Slack** > **Administration** > **Workspace settings** > **Import/Export Data** > **Export** > **Start Export**.
 
 2. In Mattermost go to **Team Settings > Import > Import from Slack**. Team Admin or System Admin role is required to access this menu option.
 
@@ -171,20 +169,23 @@ Migrating from Slack using the Mattermost Web App
 Migrating from Slack using the Mattermost CLI
 `````````````````````````````````````````````
 
-1. Generate a Slack "Export" file from **Slack > Team Settings > Import/Export Data > Export > Start Export**.
+1. Generate a Slack "Export" file from **Slack** > **Administration** > **Workspace settings** > **Import/Export Data** > **Export** > **Start Export**.
 
 2. Run the following Mattermost CLI command, with the name of a team you have already created:
 
-   ``$ platform import slack team_name /path/to/your-slack-export.zip``
+   ``$ mattermost import slack team_name /path/to/your-slack-export.zip``
 
 Using the Imported Team
 ````````````````````````
 
-* During the import process, the emails and usernames from Slack are used to create new Mattermost accounts.
+* During the import process, the emails and usernames from Slack are used to create new Mattermost accounts. If emails are not present in the Slack export archive, then placeholder values will be generated and the System Admin will need to update these manually.
 
 * Slack users can activate their new Mattermost accounts by using Mattermost's Password Reset screen with their email addresses from Slack to set new passwords for their Mattermost accounts.
 
 * Once logged in, Mattermost users will have access to previous Slack messages in the public channels imported from Slack.
+
+Migrating from Bitnami
+~~~~~~~~~~~~~~~~~~~~~~
 
 https://github.com/Brightscout/mattermost-etl
 Bitnami uses MySQL, and renames the Mattermost database tables by converting the names to all lower case. For example, in non-Bitnami installations, the Users table is named "Users", but in Bitnami, the table is "users". As a result, when you migrate your data from Bitnami to a non-Bitnami installation, you must modify the MySQL start-up script so that it starts MySQL in lowercase table mode.
@@ -196,13 +197,7 @@ For more information about letter case in MySQL table names and the ``--lower-ca
 Migrating from HipChat Server and HipChat Data Center to Mattermost
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-HipChat.com has been discontinued and replaced by Stride. It is unclear whether the former product known as HipChat Server or the rebranded product now called HipChat DataCenter will continue. 
-
-For teams with very limited amounts of data stored, follow the `Export data from HipChat Data Center Guide <https://confluence.atlassian.com/hipchatdc3/export-data-from-hipchat-data-center-913476832.html>`_ and use the `Mattermost ETL framework <https://github.com/Brightscout/mattermost-etl>`_ to import the solution. If you have questions or encounter issues, `please open a ticket <https://github.com/Brightscout/mattermost-etl/issues>`_. 
-
-For teams with large amounts of data, the export function has been reported to fail and it may be difficult to reclaim your team's data. Consider contacting HipChat support to see if a new solution is available. 
-
-For teams who have their data trapped, the most standard procedure is to run Mattermost and HipChat in parallel until all the users have moved to Mattermost then deprecate the HipChat instance. 
+Please see `HipChat Migration Guide <https://docs.mattermost.com/administration/hipchat-migration-guidelines.html>`_.
 
 Migrating from Jabber to Mattermost
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -5,7 +5,7 @@ Mattermost supports an early preview of video and audio calling option using a s
 
 The feature is a working prototype for community development and not recommended for production. It has been tested on Chrome and Firefox running on Mac and Windows and the Mattermost Mac and Windows Apps using a Mattermost server running in SSL mode.
 
-.. note:: This feature will be replaced by a plug-in architecture allowing multiple video and audio calling providers to connect into Mattermost, and features described in this section will be re-written as a plug-in.
+.. note:: This feature will be removed in Mattermost 5.6 in favor of open source plugins. For more information, see `this forum post <https://forum.mattermost.org/t/built-in-webrtc-video-and-audio-calls-removed-in-v5-6-in-favor-of-open-source-plugins/5998>`_.
 
 Configuring video and audio calls with WebRTC
 ----------------------------------------------
@@ -69,9 +69,7 @@ Start a video call
 
 After enabling the feature in the System Console by a System Administrator:
 
-1. Go to **Account Settings > Advanced > Preview pre-release features** and select **Enable the ability to make and receive one-on-one WebRTC calls**.
-
-2. Initiate a call with another user by either:
+1. Initiate a call with another user by either:
 
     Clicking **Start Video Call** on a user's profile popover, which appears after clicking their profile picture or name on the center channel or right hand sidebar.
 
@@ -98,9 +96,4 @@ Confirm video and audio calls were `configured successfully <https://docs.matter
 Unable to access camera or microphone
 ..........................
 
-Confirm you have allowed Mattermost to access your camera and microphone. See instructions on how to give permissions on `Chrome <https://support.google.com/chrome/answer/2693767?hl=en>`_ and `Firefox <http://blog.speaklikethem.com/how-to-allow-camera-and-mic-access-in-firefox/>`_.
-
-User has WebRTC disabled, and cannot receive calls.
-..........................
-
-Confirm that both users have enabled the feature in **Account Settings > Advanced > Preview pre-release features**
+Confirm you have allowed Mattermost to access your camera and microphone. See instructions on how to give permissions on `Chrome <https://support.google.com/chrome/answer/2693767?hl=en>`_ and `Firefox <https://support.ring.md/hc/en-us/articles/115008801608-Browser-settings-for-enabling-webcam-and-microphone-Mozilla-Firefox->`_.

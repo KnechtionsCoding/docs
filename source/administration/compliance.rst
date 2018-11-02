@@ -3,6 +3,11 @@ Compliance Reporting and Oversight (E20)
 
 Available in `Enterprise Edition E20 <https://about.mattermost.com/pricing/>`_.
 
+.. note::
+  This feature is replaced by a new :doc:`Compliance Export feature <compliance-export>`, and will be removed in Mattermost v6.0. We recommend migrating to the new system.
+  
+  For a sample CSV output of the new compliance export system, `download a CSV export file here <https://github.com/mattermost/docs/blob/master/source/samples/csv_export.zip>`_.
+
 This feature enables compliance exports to be produced from the System Console, with all query and download actions logged in an audit history to enable oversight and prevent unauthorized queries. 
 
 Compliance exports can be filtered to date range, user account, and keyword list. Requests from queries can be downloaded from the user interface in ``.csv`` format, with a ``.json`` metafile documenting the query, as well as placed in a directory set by the System Administrator. 
@@ -10,9 +15,6 @@ Compliance exports can be filtered to date range, user account, and keyword list
 Daily compliance reports may also be generated, supporting integration with compliance solutions like `Global Relay <https://docs.mattermost.com/administration/compliance.html#global-relay-support>`_. 
 
 By default, all Mattermost Editions retain all messages, including edits and deletes, along with all files uploaded. 
-
-.. note::
-  This feature will be replaced by a new :doc:`Compliance Export feature <compliance-export>` in a future release.
 
 Enabling Compliance Reporting 
 =============================
@@ -135,11 +137,12 @@ Compliance query results stored in ``posts.csv`` file
 | PostFilenames       | Comma separated list of filesnames attached to post           | ["/f../ho.png","/f../hi.png"] |
 +---------------------+---------------------------------------------------------------+-------------------------------+
 
-Global Relay Support 
-====================
+Global Relay Support
+=============================
 
-Mattermost daily compliance reports are compatible with Global Relay compliance solutions through the conversion of Mattermost ``.CSV`` exports into Global Relay ``EML`` files. 
+Mattermost daily compliance reports are compatible with Global Relay compliance solutions through the conversion of Mattermost ``.CSV`` exports into Global Relay ``EML`` files.
 
 - This conversion can be done by in-house developers who have previously written scripts to convert other communication systems into Global Relay format based on your organization's specific needs.
+- You can also contact your Global Relay account manager about a services project to establish this conversion.
 
-- You can also contact your Global Relay account manager about a services project to establish this conversion. 
+You may also use the new :doc:`Compliance Export feature <compliance-export>` for Global Relay exports.

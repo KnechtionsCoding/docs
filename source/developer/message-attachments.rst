@@ -5,7 +5,7 @@ A wide range of rich text formatting options, including bold, italic, headings, 
 
 For additional formatting options, and for compatibility with Slack non-markdown integrations, an ``attachments`` array can be sent by integrations and rendered by Mattermost.
 
-You can also add interactive message buttons as part of attachments. They help make your integrations richer by completing common tasks inside Mattermost conversations, increasing user engagement and productivity. For more information, see :doc:`documentation <interactive-message-buttons>`.
+You can also add interactive message buttons as part of attachments. They help make your integrations richer by completing common tasks inside Mattermost conversations, increasing user engagement and productivity. For more information, see :doc:`documentation <interactive-messages>`.
 
 Attachment Options
 ------------------
@@ -22,7 +22,7 @@ When sending an attachment, you can use any of the following to format how you w
 
 .. image:: ../images/attachments-pretext.png
 
-``text``: The text to be included in the attachment. It can be formatted using :doc:`Markdown <../help/messaging/formatting-text>`. If it includes more than 300 characters or more than 5 line breaks, the message will be collapsed and a “Show More” link will be added to expand the message.
+``text``: The text to be included in the attachment. It can be formatted using :doc:`Markdown <../help/messaging/formatting-text>`. For long texts, the message is collapsed and a “Show More” link is added to expand the message.
 
 .. image:: ../images/attachments-text.png
 
@@ -55,7 +55,7 @@ Fields can be included as an optional array within ``attachments``, and are used
 
 ``value``: The text value of the field. It can be formatted using :doc:`Markdown <../help/messaging/formatting-text>`.
 
-``short``: Optionally set to “True” or “False” to indicate whether the ``value`` is short enough to be displayed beside other values.
+``short``: Optionally set to true or false (boolean) to indicate whether the ``value`` is short enough to be displayed beside other values.
 
 .. image:: ../images/attachments-fields.png
 
@@ -94,7 +94,7 @@ Here is an example message attachment:
         "title_link": "http://docs.mattermost.com/developer/message-attachments.html",
         "fields": [
           {
-            "short": false,
+            "short":false,
             "title":"Long Field",
             "value":"Testing with a very long piece of text that will take up the whole width of the table. And then some more text to make it extra long."
           },
